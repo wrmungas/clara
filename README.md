@@ -22,16 +22,26 @@ Provide a set of simple extensions to C language. These should be simple enough 
 
 
 ### Part II: A Distinct Language
-This portion would be a longer-term project adapting more extensive changes and features into a distinct language entirely. Some difficulty of compilation could be avoided by retaining use of C as an intermediate language: compiling Clara to C, then compiling the C code. 
+This portion would be a longer-term project adapting more extensive changes and features into a distinct language entirely. Some difficulty of compilation could be avoided by retaining use of C as an intermediate language: compiling Clara to C, then compiling the C code. Features for consideration include:
 
 - Modules: higher-level version of namespaces. May not have a particular use case with namespaces existing, but I like the name 'modules'. It may be that 'module' is term I settle on for the feature, and 'namespace' is the internal term for it's included functions / types
+- dot syntax for namespace resolution e.g. `Vec3.normalize()`
+- Improved 'use' or 'using' keyword that creates a sub-scope that uses the given module namespace
 - Function behavior: Functions that take a single anonymous struct / tuple (args) and return another (results)
 - Type interfaces / traits: similar to what I think Rust does, although I don't know Rust very well. A type is considered to implement an interface/trait if the functions it requires are defined, and if the struct matches the required member names
-- Memory-focused type building: build all types off the premise of two extremely simple primitives: bytes and blocks of bytes
+- Memory-focused type building: build all types off the premise of two extremely simple primitives: bytes and blocks of bytes. Build other functionality off of these types. All types are structs!
 - Explicit arrays and tuples: support for static arrays as a kind of struct by default rather than a pointer, and tuples as anonymous structs (unnamed groupings of arbitrary data). Static arrays have size known by the compiler and can be type-checked more strongly
-- Functional types: clean syntax for a function pointer and function type. Some support for functional programming like lambdas
+- Functional types: clean syntax for a function pointer and function type. Some support for functional programming like lambdas. e.g. `function name(args):(return) {}`
 - Struct member aliasing: allow the same data block in a struct type to be accessed via different names (and perhaps different types)
+- References: like in C++, cleaner syntax than pointers
+
+Additional features I'm toying with the idea of:
+- Modules: functions can have restrictable visibility through a keyword like 'internal' or perhaps 'helper' (maybe replaces 'function')
+- Shorthand keywords: 'fun' for function, 'mod' for module, 'dec' for declare. In fact, let types have explicit full names and shorthands too, why not? 'int' for integer32, 'short' for integer16, 'long' for integer64, 'float' for floating32, 'double' for floating64, 'bool' for boolean, 'uint' for unsigned32, etc
+- File names: .clara, .cl, .cla 
+- Module files: .clmod, .clmodule, .clam (I like clam)
+- Pointer syntax: cleaner, use <type>@ for pointer types, `$()` for address-of and `@()` for dereference operations ( perhaps shorthand for `addressof()` and `dereference()`, and parentheses may ultimately be optional with these as keywords)
 
 ## Who I am
-I am currently a junior in college learning computer science. My motivations for this project are to push myself as a programmer and create a C extension or unique language that provides additional features I want with a syntax I like. I do not think there is anything wrong with C, or with a number of other languages that may do these features better than I will; I am simply interested in trying to expand from its limitations and have fun learning and exploring how language design and compilation work. I am a creative person and I really enjoy optimization puzzles, and really, deep down I just want to have fun doing this. I am not trying to be particularly serious (at least at the time of writing this, Oct 24, 2024)
+I am currently a junior in college learning computer science. My motivations for this project are to push myself as a programmer and create a C extension or unique language that provides additional features I want with a syntax I like. I do not think there is anything wrong with C, or with a number of other languages that may do these features better than I will (in fact I suspect I'll end up creating some subset of C++ with cleaner syntax and some Rust features). I am simply interested in trying to expand from its limitations and have fun learning and exploring how language design and compilation work. I am not trying to be particularly serious (at least at the time of writing this); I am a creative person who enjoys optimization puzzles, and I just want to have fun and learn something new.
 
