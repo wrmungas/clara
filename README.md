@@ -3,6 +3,15 @@ files and code relevant to my project 'clara'
 
 This is an overview of the project; look to the wiki for greater detail.
 
+## Building
+Clara will ultimately come with two build targets, both of which will specified in the Makefile. As of now only one is included, `clack` standing for Clara-C Kompiler. This is the C-extensions compiler. It accepts files with `.txt` or `.clc` extensions. 
+
+The second planned target will eventually be the `clarac` tool, which is the full Clara language compiler (which, confusingly enough for deciding on names, also compiles to C). This is a plan for future features, not a given, and may change. 
+
+To build the project for Linux, simply call `$ make` on your command-line from the `/src` directory of the project (TODO: make this accessible from the root project level or make a `/build` folder for better organization. Better yet, just include the latest built executables in the `/build` folder. So many possibilities!). This will output `clack` as a runnable binary for your machine.
+
+Currently the only architectures supported in the Makefile are Linux because I built this using VSCode through a WSL Kali installation, with the use of `gcc` in mind (reminder that this is a hobby project). Using an editor on a different machine with a built-in compiler, like MSVC for Windows VSCode might work. Otherwise I might look into supporting multiple systems through Make; in any case the output is intended as a command-line utility, so that opens a whole 'nother can of worms if I intend to include support for any architectures other than Linux. Since this is written in C nothing about it should be particularly platform-specific, but I only really know how Linux command-line utilities (and the style of programs they output) work. This is the kind of feature scope that I could support with a team, but I don't want to try on my own (yet).
+
 ## Project Overview
 
 ### What is Clara?
