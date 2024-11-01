@@ -42,7 +42,7 @@ This portion would be a longer-term project adapting more extensive changes and 
 - Explicit arrays and tuples: support for static arrays as a kind of struct by default rather than a pointer, and tuples as anonymous structs (unnamed groupings of arbitrary data). Static arrays have size known by the compiler and can be type-checked more strongly
 - Functional types: clean syntax for a function pointer and function type. Some support for functional programming like lambdas. e.g. `function name(args):(return) {}`
 - Struct member aliasing: allow the same data block in a struct type to be accessed via different names (and perhaps different types)
-- References: like in C++, cleaner syntax than pointers
+- References: like in C++, cleaner syntax than pointers through scope sharing
 
 Additional features I'm toying with the idea of:
 - Modules: functions can have restrictable visibility through a keyword like 'internal' or perhaps 'helper' (maybe replaces 'function')
