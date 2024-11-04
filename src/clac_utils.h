@@ -6,21 +6,17 @@
 #include "clac_string.h"
 #include "clac_types.h"
 
-void init_all();
-void free_all(bool info);
-
-void fatal(char *src) {
-    fprintf(stderr, "%s\n", src);
-    free_all(false);
+void fatal(string message) {
+    fprintf(stderr, "%*s\n", message.len, message.chars);
     exit(1);
 }
 
-void error(string src) {
-    fprintf(stderr, "%*s\n", src.len, src.chars);
+void error(string message) {
+    fprintf(stderr, "%*s\n", message.len, message.chars);
 }
 
-void message(string src) {
-    fprintf(stdout, "%*s\n", src.len, src.chars);
+void message(string message) {
+    fprintf(stdout, "%*s\n", message.len, message.chars);
 }
 
 #endif
